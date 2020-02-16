@@ -1,0 +1,53 @@
+[
+    {
+        "name": "general"
+    },
+    {
+        "name": "programmazione",
+        "img": "dev.jpg"
+    },
+    {
+        "name": "avventure",
+        "img": "adventure.jpg"
+    },
+    {
+        "name": "misteri",
+        "img": "mystery.jpg"
+    },
+    {
+        "name": "futuro",
+        "img": "future.jpg"
+    },
+    {
+        "name": "sport",
+        "img": "sport.jpg"
+    },
+    {
+        "name": "videogiochi",
+        "img": "games.jpg"
+    },
+    {
+        "name": "campeggio",
+        "img": "campfire.jpg"
+    },
+    {
+        "name": "film",
+        "img": "film.jpg"
+    },
+    {
+        "name": "musica",
+        "img": "music.jpg"
+    },
+    {
+        "name": "affari",
+        "img": "deal.jpg"
+    },
+    {
+        "name": "amore",
+        "img": "love.jpg"
+    },
+    {
+        "name": "gossip",
+        "img": "gossip.jpg"
+    }    
+]
