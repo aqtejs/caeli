@@ -25,4 +25,12 @@ const {server} = polka()
  */
 io(server).on('connection', (socket) => {
 	events.join(socket.id)
+	socket.emit('chat message', {
+		from: {
+			id: socket.id,
+			username: 'Mattia Sinisi'
+		},
+		content: 'Welcome, my friend, to the new Caeli!',
+		at: Date.now()
+	})
 });
