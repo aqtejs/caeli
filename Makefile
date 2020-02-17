@@ -1,6 +1,6 @@
 prod:
 	@docker-compose down
-	@docker-compose up -d
+	@docker-compose up --build -d
 dev:
 	@docker-compose down
 	@docker-compose \
@@ -8,3 +8,8 @@ dev:
 	up --remove-orphans
 build:
 	@docker-compose build
+up:
+	@docker-compose down
+	@docker-compose up -d
+down:
+	@docker-compose down
