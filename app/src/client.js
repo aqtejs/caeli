@@ -1,8 +1,5 @@
 import * as app from '@sapper/app';
-import io from 'socket.io-client';
 import './scss/app.scss';
-
-var socket = io();
 
 app.start({
 	target: document.querySelector('#app')
