@@ -16,7 +16,7 @@
 	}
 </style>
 
-<nav class="navbar has-shadow is-dark bottom">
+<nav class="navbar has-shadow bottom">
 	<div class="navbar-brand">
 		<a class="navbar-item" class:selected='{segment === undefined}' href='.'>
 			<img class="image is-64x64" src="/img/c.png" alt/>

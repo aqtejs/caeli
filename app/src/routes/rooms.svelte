@@ -4,7 +4,7 @@
 	let rooms
 
 	onMount(() => {
-		rooms = import('../config/rooms.json')
+		import('../config/rooms.json')
 			.then((res) => {
 				rooms = res.default
 			})
@@ -15,11 +15,11 @@
 
 <style scoped>
 	.banner{
-		padding-bottom: 100px;
+		padding-bottom: 60px;
 	}
 
 	.content{
-		margin-top: -100px;
+		margin-top: -60px;
 	}
 
 	.room-name{
