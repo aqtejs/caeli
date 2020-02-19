@@ -1,3 +1,3 @@
 <div class="footer is-dark">
-    Made with LOVE by Mattia Sinisi
+    Made with 💜 by Mattia Sinisi
 </div>

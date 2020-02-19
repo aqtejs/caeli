@@ -18,11 +18,13 @@
     onMount(() =>{
         import('../../config/rooms.json')
             .then((res) => {
-                var rooms = res.default
+                var rooms = res.default                
 
-                room = rooms.filter((element) => {
+                var correspondingRoom = rooms.filter((element) => {
                     return element.name === room
                 })[0]
+
+                room = correspondingRoom || room 
             })
             .catch(() => {
                 console.error('boh, error')
@@ -42,10 +44,19 @@
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
+
+        height: 100%;
+    }
+
+    .is-sticky-bottom{
+        position: sticky;
+        bottom: 0;
+        left: 0;
+        right: 0;
     }
 </style>
 
-<div class="hero is-large" style="background-image: url(/img/rooms/{room.img})">
+<div class="hero is-fullheight is-relative is-dark" style="background-image: url(/img/rooms/{room.img})">
     <div class="hero-body">
         <ul class="container">
             {#each messages as message}
@@ -54,8 +65,8 @@
         </ul>
     </div>
 
-    <div class="hero-footer container">
-        <form class="form section">
+    <div class="hero-footer">
+        <form class="form section is-sticky-bottom">
             <div class="field has-addons">
                 <div class="control">
                     <input
@@ -63,6 +74,7 @@
                         type="text"
                         placeholder="Write a message"
                         class="input is-medium is-rounded"
+                        autocomplete="off"
                     />
                 </div>
 

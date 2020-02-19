@@ -7,8 +7,14 @@
 	br{
 		margin-top: 20px;
 	}
+
+	main {
+		min-height: 100vh;
+		min-width: 100vh;
+	}
 </style>
 
+<Nav/>
 <main>
 	<slot></slot>
 </main>
@@ -16,4 +22,3 @@
 <br>
 
 <Footer/>
-<Nav/>

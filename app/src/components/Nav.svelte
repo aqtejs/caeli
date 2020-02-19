@@ -7,16 +7,16 @@
 </script>
 
 <style scoped>
-	.navbar{
+	/*.navbar{
 		position: sticky;
 		left: 0;
 		right: 0;
 		top: 0;
 		bottom: 0;
-	}
+	}*/
 </style>
 
-<nav class="navbar has-shadow bottom">
+<nav class="navbar has-shadow is-fixed-top">
 	<div class="navbar-brand">
 		<a class="navbar-item" class:selected='{segment === undefined}' href='.'>
 			<img class="image is-64x64" src="/img/c.png" alt/>

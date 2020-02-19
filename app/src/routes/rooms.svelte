@@ -80,11 +80,11 @@
 
 		{#each rooms as room}
 			<div class="section">
-				<div class="hero is-dark is-rounded" style="background-image: url(/img/rooms/{room.img})">
+				<a href="/chat/{room.name}" class="hero is-dark is-rounded" style="background-image: url(/img/rooms/{room.img})">
 					<div class="hero-body is-rounded overlay container">
 						<p class="title is-5 room-name">{room.name}</p>
 					</div>
-				</div>
+				</a>
 			</div>
 		{/each}
 	{/if}
