@@ -28,7 +28,7 @@ io(server).on('connection', (socket) => {
 	socket.emit('chat message', {
 		from: {
 			id: socket.id,
-			username: 'Mattia Sinisi'
+			username: 'Welcome [BOT]'
 		},
 		content: 'Welcome, my friend, to the new Caeli!',
 		at: Date.now()
