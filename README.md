@@ -18,7 +18,7 @@ If you create an account you'll have all your settings and info sychronized acro
 
 #### Contributions are welcome
 
-If you want to fork the project or contribute to it you are more than welcome to do that, with regards to the [licence](LICENCE) of course.
+If you want to fork the project or contribute to it you are more than welcome to do that, with regards to the [license](LICENSE) of course.
 
 Even if you have feedback or want to discuss new ideas then, by all means, open as many issues as you want and help me understand your point of view.
 
