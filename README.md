@@ -1,6 +1,9 @@
 # caeli
 ### A lightweight IRT chat application
 
+[![GitHub issues](https://img.shields.io/github/issues/sinisimattia/caeli?color=purple&style=for-the-badge)](https://github.com/sinisimattia/caeli/issues)
+
+
 #### Goal
 
 This application aims to bring complete anonimity to conversation, whilst being a powerful tool to embed in your site in order to implement chat features.
