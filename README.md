@@ -1,7 +1,10 @@
 # caeli
 ### A lightweight IRT chat application
+![Svelte](https://img.shields.io/badge/powered%20by-svelte-gray?style=for-the-badge&logo=svelte)
+
 
 [![GitHub issues](https://img.shields.io/github/issues/sinisimattia/caeli?color=purple&style=for-the-badge)](https://github.com/sinisimattia/caeli/issues)
+[![GitHub license](https://img.shields.io/github/license/sinisimattia/caeli?style=for-the-badge)](https://github.com/sinisimattia/caeli/blob/master/LICENSE)
 
 
 #### Goal
