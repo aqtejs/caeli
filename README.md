@@ -1,6 +1,9 @@
 # caeli
 ### A lightweight IRT chat application
 
+[![Twitter](https://img.shields.io/twitter/url?label=Tweet%20about%20this&logoColor=purple&style=social&url=https%3A%2F%2Fgithub.com%2Fsinisimattia%2Fcaeli%2F)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fsinisimattia%2Fcaeli%2F)
+![GitHub repo size](https://img.shields.io/github/repo-size/sinisimattia/caeli?style=flat)
+
 [![GitHub issues](https://img.shields.io/github/issues/sinisimattia/caeli?color=purple&style=for-the-badge)](https://github.com/sinisimattia/caeli/issues)
 [![GitHub license](https://img.shields.io/github/license/sinisimattia/caeli?style=for-the-badge)](https://github.com/sinisimattia/caeli/blob/master/LICENSE)
 
