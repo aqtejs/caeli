@@ -28,5 +28,5 @@ Even if you have feedback or want to discuss new ideas then, by all means, open 
 
 ##### Thanks and have fun!
 
-![Svelte](https://img.shields.io/badge/powered%20by-svelte-gray?style=for-the-badge&logo=svelte)
-![Bulma](https://img.shields.io/badge/styled%20with-bulma-gray?style=for-the-badge&logo=bulma)
+[![Svelte](https://img.shields.io/badge/powered%20by-svelte-gray?style=for-the-badge&logo=svelte)](https://svelte.dev)
+[![Bulma](https://img.shields.io/badge/styled%20with-bulma-gray?style=for-the-badge&logo=bulma)](https://bulma.io)
