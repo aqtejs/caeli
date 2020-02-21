@@ -1,7 +1,5 @@
 # caeli
 ### A lightweight IRT chat application
-![Svelte](https://img.shields.io/badge/powered%20by-svelte-gray?style=for-the-badge&logo=svelte)
-
 
 [![GitHub issues](https://img.shields.io/github/issues/sinisimattia/caeli?color=purple&style=for-the-badge)](https://github.com/sinisimattia/caeli/issues)
 [![GitHub license](https://img.shields.io/github/license/sinisimattia/caeli?style=for-the-badge)](https://github.com/sinisimattia/caeli/blob/master/LICENSE)
@@ -29,3 +27,6 @@ If you want to fork the project or contribute to it you are more than welcome to
 Even if you have feedback or want to discuss new ideas then, by all means, open as many issues as you want and help me understand your point of view.
 
 ##### Thanks and have fun!
+
+![Svelte](https://img.shields.io/badge/powered%20by-svelte-gray?style=for-the-badge&logo=svelte)
+![Bulma](https://img.shields.io/badge/styled%20with-bulma-gray?style=for-the-badge&logo=bulma)
