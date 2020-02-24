@@ -10,10 +10,23 @@ import config from 'sapper/config/rollup.js';
 import scss from 'rollup-plugin-scss';
 import json from '@rollup/plugin-json';
 import ts from '@rollup/plugin-typescript';
+import sveltePreprocess from 'svelte-preprocess';
+import autoprefixer from 'autoprefixer';
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
+
+const preprocess = sveltePreprocess({
+	scss: {
+		includePaths: ['src'],
+	},
+	postcss: {
+		plugins: [
+			autoprefixer
+		],
+	},
+});
 
 const onwarn = (warning, onwarn) => (warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) || onwarn(warning);
 
@@ -30,6 +43,7 @@ export default {
 				dev,
 				hydratable: true,
 				emitCss: true,
+				preprocess,
 			}),
 			resolve({
 				browser: true,
@@ -38,7 +52,7 @@ export default {
 			json(),
 
 			ts(),
-			
+
 			commonjs(),
 
 			scss({
@@ -81,12 +95,13 @@ export default {
 			}),
 			svelte({
 				generate: 'ssr',
-				dev
+				dev,
+				preprocess,
 			}),
 			resolve({
 				dedupe: ['svelte']
 			}),
-			commonjs()
+			commonjs(),
 		],
 		external: Object.keys(pkg.dependencies).concat(
 			require('module').builtinModules || Object.keys(process.binding('natives'))
