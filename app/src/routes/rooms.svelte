@@ -74,7 +74,7 @@
 	{#if rooms}
 		<div class="section">
 			<div class="hero is-rounded is-warning">
-				<input type="text" class="hero-body is-rounded container is-dark input is-large room-name" placeholder="Custom room name"/>
+				<input type="text" class="hero-body is-rounded container is-dark input is-large title is-5 room-name" placeholder="Custom room name"/>
 			</div>
 		</div>
 
