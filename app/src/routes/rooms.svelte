@@ -1,7 +1,13 @@
 <script>
 	import { onMount } from 'svelte'
+	import { username } from '../stores/user.js'
+	import { goto } from '@sapper/app'
 	
 	let rooms
+	let name
+	let room
+
+	username.subscribe(value => name = value)
 
 	onMount(() => {
 		import('../config/rooms.json')
@@ -10,6 +16,13 @@
 			})
 	})
 
+	function enter(){
+		let cr = room.trim()
+
+		if(cr != "" && cr != undefined){
+			goto("/chat/" + cr.toLowerCase())
+		}
+	}
 	
 </script>
 
@@ -66,16 +79,21 @@
 			<span>Rooms</span>
 			<span class="is-4" class:loader={!rooms}></span>
 		</h1>
-		
+
+		{#if name && rooms}
+		<div class="hero-head">
+			<p>Connected as <span class="has-text-warning">{name}</span></p>
+		</div>
+		{/if}		
 	</div>
 </div>
 
 <div class="rooms content container is-rounded is-paddingless">
 	{#if rooms}
 		<div class="section">
-			<div class="hero is-rounded is-warning">
-				<input type="text" class="hero-body is-rounded container is-dark input is-large title is-5 room-name" placeholder="Custom room name"/>
-			</div>
+			<form class="hero is-rounded is-warning" on:submit|preventDefault={enter}>
+				<input type="text" class="hero-body is-rounded container is-dark input is-large title is-5 room-name" placeholder="Custom room name" bind:value={room}/>
+			</form>
 		</div>
 
 		{#each rooms as room}
