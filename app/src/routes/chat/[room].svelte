@@ -13,8 +13,12 @@
     import MSG from '../../components/Message.svelte'
     import { onMount } from 'svelte'
     import { Message } from '../../classes/Message'
+    import { User } from '../../classes/User'
+    import { Room } from '../../classes/Room'
 
     export let room
+    let socket = io()
+    let messages = []
 
     onMount(() =>{
         import('../../config/rooms.json')
@@ -25,15 +29,14 @@
                     return element.name === room
                 })[0]
 
-                room = correspondingRoom || room 
+                room = correspondingRoom || { name: room } 
+
+                socket.emit('subscribe', room.name)
             })
             .catch(() => {
                 console.error('There was an error when loading rooms')
             })
     })
-
-    let socket = io()
-    let messages = []
 
     socket.on('chat message', (data) => {
         messages = [...messages, data]
@@ -44,7 +47,7 @@
         let msg = target.elements[0].value.trim()
 
         if(msg != "")
-            socket.emit('chat message', new Message(msg))
+            socket.emit('chat message', new Message(msg, new User("Anon", socket.id)))
 
         target.reset()
     }
@@ -59,7 +62,7 @@
         height: 100%;
     }
 
-    .hero-footer{
+    .hero-foot{
         position: sticky;
         bottom: 0;
         left: 0;
@@ -84,14 +87,14 @@
         </ul>
     </div>
 
-    <div class="hero-footer">
+    <div class="hero-foot">
         <form class="form section" on:submit|preventDefault={send}>
             <div class="field has-addons">
                 <div class="control msg">
                     <input
                         name="message"
                         type="text"
-                        placeholder="Write a message"
+                        placeholder="Write a message to {room.name}"
                         class="input is-medium is-rounded is-success"
                         autocomplete="off"
                         maxlength="280"
