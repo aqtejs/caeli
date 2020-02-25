@@ -13,7 +13,9 @@
     {#if from}
     <label class="label">
         {from.username}
+        {#if from.id}
         <span class="tag is-primary is-light">{from.id}</span>
+        {/if}
     </label>
     {/if}
 
