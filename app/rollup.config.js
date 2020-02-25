@@ -9,7 +9,7 @@ import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
 import scss from 'rollup-plugin-scss';
 import json from '@rollup/plugin-json';
-import ts from '@rollup/plugin-typescript';
+//import ts from '@rollup/plugin-typescript';
 import sveltePreprocess from 'svelte-preprocess';
 import autoprefixer from 'autoprefixer';
 
@@ -51,9 +51,11 @@ export default {
 			}),
 			json(),
 
-			ts(),
+			//ts(),
 
-			commonjs(),
+			commonjs({
+				extensions: ['.js', '.ts']
+			}),
 
 			scss({
 				output: './static/global.css'
@@ -101,7 +103,10 @@ export default {
 			resolve({
 				dedupe: ['svelte']
 			}),
-			commonjs(),
+			commonjs({
+				extensions: ['.js', '.ts']
+			}),
+			//ts(),
 		],
 		external: Object.keys(pkg.dependencies).concat(
 			require('module').builtinModules || Object.keys(process.binding('natives'))
