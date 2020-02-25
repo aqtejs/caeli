@@ -6,6 +6,8 @@ import io from 'socket.io';
 
 import events from './events';
 
+import { Message } from './classes/Message.js'
+
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === 'development';
 
@@ -23,14 +25,21 @@ const {server} = polka()
 /**
  * Socket.IO server
  */
-io(server).on('connection', (socket) => {
+
+const C = io(server);
+
+C.on('connection', (socket) => {
 	events.join(socket.id)
 	socket.emit('chat message', {
 		from: {
-			id: socket.id,
-			username: 'Welcome [BOT]'
+			username: 'Welcome [BOT]',
+			id: socket.id
 		},
-		content: 'Welcome, my friend, to the new Caeli!',
+		content: `Welcome, my friend, to the new Caeli!\nYour ID is the same as mine`,
 		at: Date.now()
+	})
+
+	socket.on('chat message', function(msg){
+		C.emit('chat message', msg)
 	})
 });
