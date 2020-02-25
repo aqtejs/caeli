@@ -1,0 +1,12 @@
+input.is-outlined{
+    background: none;
+
+    &.is-warning{
+        &::placeholder{
+            color: $warning;
+            opacity: 0.5;
+        }
+
+        color: $warning;
+    }
+}
