@@ -10,8 +10,9 @@
 
 <script>
     import io from 'socket.io-client'
-    import Message from '../../components/Message.svelte'
+    import MSG from '../../components/Message.svelte'
     import { onMount } from 'svelte'
+    import { Message } from '../../classes/Message'
 
     export let room
 
@@ -27,7 +28,7 @@
                 room = correspondingRoom || room 
             })
             .catch(() => {
-                console.error('boh, error')
+                console.error('There was an error when loading rooms')
             })
     })
 
@@ -37,9 +38,19 @@
     socket.on('chat message', (data) => {
         messages = [...messages, data]
     })
+
+    function send(event){
+        let target = event.target
+        let msg = target.elements[0].value.trim()
+
+        if(msg != "")
+            socket.emit('chat message', new Message(msg))
+
+        target.reset()
+    }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
     .hero{
         background-position: center;
         background-size: cover;
@@ -48,33 +59,42 @@
         height: 100%;
     }
 
-    .is-sticky-bottom{
+    .hero-footer{
         position: sticky;
         bottom: 0;
         left: 0;
         right: 0;
+
+        form, .field, .control.msg, input{
+            width: 100%;
+        }
     }
 </style>
+
+<svelte:head>
+    <title>{room.name != null ? room.name : "Loading chat..."}</title>
+</svelte:head>
 
 <div class="hero is-fullheight is-relative is-dark" style="background-image: url(/img/rooms/{room.img})">
     <div class="hero-body">
         <ul class="container">
             {#each messages as message}
-                <li><Message from={message.from} at={message.at}>{message.content}</Message></li>
+                <li><MSG from={message.from} at={message.at}>{message.content}</MSG></li>
             {/each}            
         </ul>
     </div>
 
     <div class="hero-footer">
-        <form class="form section is-sticky-bottom">
+        <form class="form section" on:submit|preventDefault={send}>
             <div class="field has-addons">
-                <div class="control">
+                <div class="control msg">
                     <input
                         name="message"
                         type="text"
                         placeholder="Write a message"
-                        class="input is-medium is-rounded"
+                        class="input is-medium is-rounded is-success"
                         autocomplete="off"
+                        maxlength="280"
                     />
                 </div>
 
