@@ -1,8 +1,13 @@
 {
     "compilerOptions": {
-        "module": "commonjs"
+        "allowJs": true,
+        "target": "es5",
+        "module": "commonjs",
+        "outDir": "src/classes"
     },
-    "include": [
-        "./src/classes"
+    "files": [
+        "src/classes/ts/Message.ts",
+        "src/classes/ts/Room.ts",
+        "src/classes/ts/User.ts",
     ]
 }
