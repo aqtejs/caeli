@@ -1,11 +1,13 @@
 <script>
+	import Modal from '../components/Modal.svelte';
+
 	export let status;
 	export let error;
 
 	const dev = process.env.NODE_ENV === 'development';
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 	.title.is-1{
 		font-size: 100px
 	}
@@ -23,25 +25,9 @@
 			<p class="has-text-centered subtitle is-2">{error.message}</p>
 
 			{#if dev && error.stack}
-				<div class="box is-rounded is-paddingless">
-					<div class="hero is-small is-dark">
-						<div class="hero-body is-paddingless is-block">
-							<div class="level">
-								<div class="level-left">
-									<span>Ops...</span>
-								</div>
-
-								<div class="level-right">
-									<div class="level-item">
-										...
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<pre>{error.stack}</pre>
-				</div>
+				<Modal title="Ops...">
+					{error.stack}
+				</Modal>
 			{/if}
 		</div>
 	</div>
