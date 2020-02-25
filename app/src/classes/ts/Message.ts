@@ -6,7 +6,7 @@ export class Message{
     public readonly content: String;
     public readonly to: [User, Room];
 
-    constructor(from: User, content: String, to: [User, Room] = null){
+    constructor(content: String, from: User,  to: [User, Room] = null){
         this.from = from;
         this.content = content;
         this.to = to;
